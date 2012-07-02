@@ -1,0 +1,15 @@
+{
+  "name": "team-track",
+  "version": "0.0.0",
+  "description": "scrape FRC team awards data from FIRST's website",
+  "bin": "index.js",
+  "author": "Michael Smith",
+  "license": "MIT",
+  "dependencies": {
+    "request": "2.9.203",
+    "jsdom": "0.2.14"
+  },
+  "devDependencies": {
+    "coffee-script": "1.3.3"
+  }
+}
