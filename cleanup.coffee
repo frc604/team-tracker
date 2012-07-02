@@ -13,7 +13,8 @@ if not file?
 else
   file = fs.readFileSync path.join(process.cwd(), file), 'utf8'
 
-  file = file.replace /(\n)+/, '\n'
-  file = file.replace /( )+/, ' '
+  file = file.replace /(\n)+/g, '\n'
+  file = file.replace /( )+/g, ' '
+  file = file.trim()
 
   console.log file
