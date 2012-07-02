@@ -1,4 +1,4 @@
-# strip out repeat newlines from the output of index.coffee
+# strip out repeat newlines and spaces from the output of index.coffee
 
 fs   = require 'fs'
 path = require 'path'
@@ -12,6 +12,8 @@ if not file?
   process.exit 1
 else
   file = fs.readFileSync path.join(process.cwd(), file), 'utf8'
+
   file = file.replace /(\n)+/, '\n'
+  file = file.replace /( )+/, ' '
 
   console.log file

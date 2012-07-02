@@ -75,7 +75,7 @@
     return grab_team_dom(team, function(err, window) {
       var $, csv, item, ret, rows, _i, _len;
       if (err != null) {
-        cb(err);
+        callback(cb, err, team);
         return;
       }
       $ = window.jQuery;
@@ -122,7 +122,7 @@
       }
       ret = ret.trim();
       ret = ret.replace(/(\n)+/, '\n');
-      return callback(cb, void 0, ret);
+      return callback(cb, void 0, team, ret);
     });
   };
 
@@ -137,10 +137,10 @@
     process.exit(1);
   } else {
     for (i = _i = min; min <= max ? _i < max : _i > max; i = min <= max ? ++_i : --_i) {
-      scrape_team_awards(i, function(err, csv) {
+      scrape_team_awards(i, function(err, team, csv) {
         if (err != null) {
           if (err !== '404') {
-            return console.warn(err);
+            return console.warn('Error on team %s: ', team, err);
           }
         } else {
           return console.log(csv);

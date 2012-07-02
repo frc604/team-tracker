@@ -17,6 +17,7 @@
   } else {
     file = fs.readFileSync(path.join(process.cwd(), file), 'utf8');
     file = file.replace(/(\n)+/, '\n');
+    file = file.replace(/( )+/, ' ');
     console.log(file);
   }
 
