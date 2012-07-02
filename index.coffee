@@ -114,7 +114,7 @@ if not min? or not max? or isNaN(min) or isNaN(max) or max < min
   console.warn 'Please specify a team range to scrape, in the format: [min] [max]'
   process.exit 1
 else
-  for i in [min...max]
+  for i in [min..max]
     scrape_team_awards i, (err, team, csv) ->
       if err?
         console.warn 'Error on team %s: ', team, err if err isnt '404'
