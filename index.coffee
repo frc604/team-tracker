@@ -108,7 +108,7 @@ scrape_team_awards = (team, cb) ->
 process.argv.splice 0, 2
 
 min = parseInt process.argv[0]
-max = parseInt process.argv[1]
+max = parseInt process.argv[1] or min + 1
 
 if not min? or not max? or isNaN(min) or isNaN(max) or max < min
   console.warn 'Please specify a team range to scrape, in the format: [min] [max]'
